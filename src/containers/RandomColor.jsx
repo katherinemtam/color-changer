@@ -22,6 +22,11 @@ export default class RandomColor extends Component {
     }
   }
 
+  // componentDidUpdate(prevProps, prevState){
+  //   if(prevState.selectedColor === this.state.selectedColor) {
+  //     console.log('duplicate');
+  //   }}
+
   componentDidMount = () => {
     setInterval(() => { 
       this.getColor();
