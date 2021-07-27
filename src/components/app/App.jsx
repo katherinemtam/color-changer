@@ -1,11 +1,11 @@
 import React from 'react';
 import RandomColor from '../../containers/RandomColor';
+import './App.css';
 
 export default function App() {
   return (
-    <>
-      <h1>World of Color!</h1>
+    <div>
       <RandomColor />
-    </>
+    </div>
   );
 }

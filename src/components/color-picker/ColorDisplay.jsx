@@ -6,8 +6,8 @@ const ColorDisplay = ({ backgroundColor }) => {
     <div
       style = {{
         backgroundColor,
-        width: '100px',
-        height: '100px',
+        width: '100vw',
+        height: '100vh',
       }}
     ></div>
   );
