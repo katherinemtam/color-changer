@@ -4,12 +4,22 @@ import ColorDisplay from '../components/color-picker/ColorDisplay';
 export default class RandomColor extends Component {
   state = {
     selectedColor: 'pink',
+    sameColor: false
   };
 
   getColor = () => {
-    const colors = ['palegreen', 'powderblue', 'pink'];
+    //reset sameColor state
+    this.setState({ sameColor: false });
+    
+    //get random color
+    const colors = ['palegreen', 'powderblue', 'pink', 'palegoldenrod'];
     const color = colors[Math.floor(Math.random() * colors.length)];
-    this.setState({ selectedColor: color });
+    
+    if(this.state.selectedColor === color) {
+      this.setState({ sameColor: true });
+    } else {
+      this.setState({ selectedColor: color });
+    }
   }
 
   componentDidMount = () => {
@@ -19,11 +29,15 @@ export default class RandomColor extends Component {
   };
 
   render() {
-    const { selectedColor } = this.state;
+    const { selectedColor, sameColor } = this.state;
 
     return (
       <>
-        <ColorDisplay backgroundColor={selectedColor} />
+        {sameColor 
+          ? <img src="https://i.dailymail.co.uk/i/pix/2016/03/18/15/324D202500000578-3498922-image-a-33_1458315465874.jpg"/>
+          : <ColorDisplay backgroundColor = { selectedColor } />
+        }
+        
       </>
     );
   }
